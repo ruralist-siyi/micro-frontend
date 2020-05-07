@@ -5,6 +5,7 @@ const { CheckerPlugin } = require('awesome-typescript-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ROOT = path.resolve(__dirname);
+const packageName = require('../package.json').name;
 
 module.exports = {
   entry: './src/index.tsx',
@@ -14,10 +15,18 @@ module.exports = {
     //React使用react-Router时多级路由刷新时报404的问题
     publicPath: '/',
     sourceMapFilename: '[name].bundle.map.js',
+    library: `${packageName}-[name]`,
+    libraryTarget: 'umd',
+    jsonpFunction: `webpackJsonp_${packageName}`
   },
   module: {
     rules: [
-      { test: /\.ts[x]?$/, loader: 'babel-loader'},
+      { test: /\.ts[x]?$/, loader: 'babel-loader', options: {
+        presets: [
+          '@babel/preset-react',
+          '@babel/preset-typescript'
+        ]
+      } },
       { enforce: 'pre', test: /\.ts[x]$/, loader: 'source-map-loader' },
       {
         test: /\.(css|less)$/,
@@ -52,10 +61,13 @@ module.exports = {
     stats: 'errors-only',
     compress: false,
     host: 'localhost',
-    port: 8081,
+    port: 8082,
     historyApiFallback: true,
     hot: true,
     open: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    }
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.png'],
