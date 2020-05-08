@@ -71,11 +71,11 @@ function Home() {
           mode='inline'
           defaultSelectedKeys={[location.pathname]}
         >
-          <Menu.Item key='/main/userList'>
+          {/* <Menu.Item key='/main/userList'>
             <NavLink to='/main/userList'>
               main{!collapsed ? '-用户模块' : ''}
             </NavLink>
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item key='/app1/marketing'>
             <NavLink to='/app1/marketing'>
               app1{!collapsed ? '-营销模块' : ''}
@@ -108,7 +108,8 @@ function Home() {
             padding: 24,
             minHeight: 280,
           }}
-        ></Content>
+        >
+        </Content>
       </Layout>
     </Layout>
   );

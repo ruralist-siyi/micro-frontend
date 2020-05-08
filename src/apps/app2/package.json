@@ -1,0 +1,73 @@
+{
+  "name": "reactApp",
+  "version": "0.0.1",
+  "description": "micro-frontend",
+  "keywords": [
+    "react",
+    "micro-frontend",
+    "micro",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruralist-siyi/mayui.git"
+  },
+  "author": "siyi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ruralist-siyi/micro-frontend/issues"
+  },
+  "homepage": "https://github.com/ruralist-siyi/micro-frontend",
+  "peerDependencies": {
+    "react": ">= 16.8.3",
+    "react-dom": ">= 16.8.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.9.2",
+    "antd": "^4.2.0",
+    "classnames": "^2.2.6",
+    "qiankun": "^2.0.11",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.2",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-import": "^1.13.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.5.2",
+    "html-webpack-plugin": "^4.2.0",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^1.1.4",
+    "tslint": "^6.1.1",
+    "tslint-react": "^5.0.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "browserslist": [
+    "last 2 version",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 9"
+  ]
+}

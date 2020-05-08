@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Maketing from './pages/Marketing';
+import Report from './pages/Report';
 
 const subNode: any = document.getElementById('sub-reactApp');
 
 const SubReactApp = function () {
   return (
-    <Router basename='/app1'>
+    <Router basename='/app2'>
       {
         <Switch>
-          <Route exact path='/marketing' component={Maketing} />
+          <Route exact path='/report' component={Report} />
         </Switch>
       }
     </Router>
@@ -29,8 +29,9 @@ export async function bootstrap() {
  * 应用每次进入都会调用 mount 方法，通常我们在这里触发应用的渲染方法
  */
 export async function mount(props) {
+  const { container } = props;
   console.log('mount reactApp', props);
-  ReactDOM.render(<SubReactApp />, subNode);
+  ReactDOM.render(<SubReactApp />, container.querySelector('#sub-reactApp'));
 }
 
 /**

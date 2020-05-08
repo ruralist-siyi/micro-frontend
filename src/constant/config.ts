@@ -6,10 +6,15 @@ const mainAppConfig = {
 
 const subAppConfig = {
   app1: {
-    name: 'reactApp',
+    name: 'app1',
     entry: '//localhost:8082',
     container: '#sub-content',
   },
+  app2: {
+    name: 'app2',
+    entry: '//localhost:8083',
+    container: '#sub-content'
+  }
 };
 
 export { subAppConfig, mainAppConfig };
