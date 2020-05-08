@@ -1,5 +1,5 @@
 {
-  "name": "reactApp",
+  "name": "app2",
   "version": "0.0.1",
   "description": "micro-frontend",
   "keywords": [
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ruralist-siyi/mayui.git"
+    "url": "git+https://github.com/ruralist-siyi/micro-frontend.git"
   },
   "author": "siyi",
   "license": "MIT",
@@ -29,6 +29,7 @@
   "dependencies": {
     "@babel/runtime": "^7.9.2",
     "antd": "^4.2.0",
+    "bizcharts": "^4.0.2",
     "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
