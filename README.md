@@ -1,4 +1,4 @@
-## Micro Frontend
+# Micro Frontend
 基于[qiankun](https://qiankun.umijs.org/)框架的微前端脚手架demo。
 
 ### 一、Why 微前端
@@ -29,7 +29,6 @@ npm run dev
 cd src/apps/app2
 npm run dev
 ```
-
-### 五、应用截图
+### 六、应用截图
 ![应用截图1](https://github.com/ruralist-siyi/micro-frontend/blob/master/src/static/cut1.png)
 ![应用截图2](https://github.com/ruralist-siyi/micro-frontend/blob/master/src/static/cut2.png)
