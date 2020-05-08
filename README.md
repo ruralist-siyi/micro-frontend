@@ -6,17 +6,17 @@
 2. 解耦巨型中后台前端应用（由于业务的发展，我们的类似后台管理系统，会逐渐扩充业务版块内容，如果一直在一个应用上迭代，这个应用会变得非常庞大）；
 3. 业务线聚合以及独立开发独立部署；
 
-### 带来的问题
+### 二、带来的问题
 1. 需要合理的部署方案（千万别跨域哦，CDN加持更好哦）
 2. 主应用与子应用权限的问题需要好的解决方案（统一登陆、菜单权限、子应用权限等）
 
-### 项目架构解析
+### 三、项目架构解析
 1. 根src：整体的源码入口
 2. constant：子应用配置
 3. main: 主应用内容
 4. apps: 这个目录下是所有子应用（可以单独拉这个目录下的子应用，单独开发以及部署）
 
-### 如何run
+### 四、如何run
 ```
 // main应用启动
 npm run dev
@@ -30,4 +30,6 @@ cd src/apps/app2
 npm run dev
 ```
 
-### 应用截图
+### 五、应用截图
+![应用截图1](https://github.com/ruralist-siyi/micro-frontend/blob/master/src/static/cut1.png)
+![应用截图2](https://github.com/ruralist-siyi/micro-frontend/blob/master/src/static/cut2.png)
