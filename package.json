@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ruralist-siyi/mayui.git"
+    "url": "git+https://github.com/ruralist-siyi/micro-frontend.git"
   },
   "author": "siyi",
   "license": "MIT",
