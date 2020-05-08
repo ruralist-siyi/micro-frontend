@@ -1,5 +1,6 @@
 import React from 'react';
 import { PageHeader, Button, Table } from 'antd';
+import { MicroStateContext } from '../../index';
 
 const dataSource = [
   {
@@ -36,22 +37,33 @@ const columns = [
 
 function Marketing() {
   return (
-    <>
-    <PageHeader
-      ghost={false}
-      onBack={() => window.history.back()}
-      title="营销模块"
-      subTitle="独立开发独立部署"
-      extra={[
-        <Button key="3">Operation</Button>,
-        <Button key="2">Operation</Button>,
-        <Button key="1" type="primary">
-          Primary
-        </Button>,
-      ]}
-    ></PageHeader>
-      <Table dataSource={dataSource} columns={columns} />
-    </>
+    <MicroStateContext.Consumer>
+      {(state: any) => {
+        return (
+          <>
+            <PageHeader
+              ghost={false}
+              onBack={() => window.history.back()}
+              title='营销模块'
+              subTitle={
+                <div>
+                  独立开发独立部署：
+                  <span style={{ color: 'red' }}>我是{state.global}</span>
+                </div>
+              }
+              extra={[
+                <Button key='3'>Operation</Button>,
+                <Button key='2'>Operation</Button>,
+                <Button key='1' type='primary'>
+                  Primary
+                </Button>,
+              ]}
+            ></PageHeader>
+            <Table dataSource={dataSource} columns={columns} />
+          </>
+        );
+      }}
+    </MicroStateContext.Consumer>
   );
 }
 

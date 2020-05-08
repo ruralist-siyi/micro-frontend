@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Maketing from './pages/Marketing';
 
+const initalMicroState = {};
+export const MicroStateContext = React.createContext(initalMicroState);
+
 const subNode: any = document.getElementById('sub-reactApp');
 
 const SubReactApp = function () {
@@ -29,9 +32,21 @@ export async function bootstrap() {
  * 应用每次进入都会调用 mount 方法，通常我们在这里触发应用的渲染方法
  */
 export async function mount(props) {
+  console.log('mount app1', props);
   const { container } = props;
-  console.log('mount reactApp', props);
-  ReactDOM.render(<SubReactApp />, container.querySelector('#sub-reactApp'));
+  let contextState = {};
+  props.onGlobalStateChange((state, prev) => {
+    contextState = {
+      ...initalMicroState,
+      ...state,
+    };
+  }, true);
+  ReactDOM.render(
+    <MicroStateContext.Provider value={contextState}>
+      <SubReactApp />
+    </MicroStateContext.Provider>,
+    container.querySelector('#sub-reactApp')
+  );
 }
 
 /**

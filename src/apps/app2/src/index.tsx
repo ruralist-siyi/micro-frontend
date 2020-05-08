@@ -30,7 +30,7 @@ export async function bootstrap() {
  */
 export async function mount(props) {
   const { container } = props;
-  console.log('mount reactApp', props);
+  console.log('mount app2', props);
   ReactDOM.render(<SubReactApp />, container.querySelector('#sub-reactApp'));
 }
 
