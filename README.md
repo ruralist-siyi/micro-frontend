@@ -1,6 +1,11 @@
 # Micro Frontend
 基于[qiankun](https://qiankun.umijs.org/)框架的微前端脚手架demo。
 
+## 演示地址
+1. 主应用：http://www.frontweb.top:8081/
+2. 子应用1: http://www.frontweb.top:8082/app1/marketing
+3. 子应用2: http://www.frontweb.top:8083/app2/report
+
 ### 一、Why 微前端
 1. 帮助陈旧应用升级技术栈（之前你可能会有基于传统jquery的应用，如果你想要升级为现代化前端应用，大多时候你需要使用新技术重新实现一遍旧应用的功能来做到升级，不限技术栈的融合）；
 2. 解耦巨型中后台前端应用（由于业务的发展，我们的类似后台管理系统，会逐渐扩充业务版块内容，如果一直在一个应用上迭代，这个应用会变得非常庞大）；

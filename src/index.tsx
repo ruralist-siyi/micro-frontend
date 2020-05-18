@@ -13,7 +13,7 @@ const actions: MicroAppStateActions = initGlobalState(initalState);
 
 actions.onGlobalStateChange((state, prev) => {
   // state: 变更后的状态; prev 变更前的状态
-  console.log(state, prev);
+  console.log('onGlobalStateChange', state, prev);
 });
 actions.setGlobalState({ global: 'main 传递的数据' });
 // actions.offGlobalStateChange();

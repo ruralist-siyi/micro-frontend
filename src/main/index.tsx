@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { loadMicroApp } from 'qiankun';
 import { Layout, Menu } from 'antd';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-import { subAppConfig, mainAppConfig } from '../constant/config';
+import { subAppConfig, mainAppConfig, persistentApps, AppConfigType } from '../constant/config';
 import './index.less';
 
 const { Header, Sider, Content } = Layout;
@@ -11,13 +11,14 @@ const { Header, Sider, Content } = Layout;
 function Home() {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const [prefix, setPrefix] = useState<string>('');
-  const [subConfig, setSubConfig] = useState<any>({});
+  const [subConfig, setSubConfig] = useState<AppConfigType | null>(null);
   const [microApp, setMicroApp] = useState<any>(null);
   const location: any = useLocation();
 
-  const unmountSubApp = () => {
-    if (microApp) {
-      if (microApp.getStatus() === 'MOUNTED') {
+  const unmountSubApp = (currentPrefix): void => {
+    if(!persistentApps.includes(currentPrefix)) {
+      if (microApp && microApp.getStatus() === 'MOUNTED') {
+        console.log('prev App microApp.unmount');
         microApp.unmount();
       }
     }
@@ -43,24 +44,18 @@ function Home() {
     const currentPrefix = location.pathname.split('/')[1];
     if (prefix !== currentPrefix) {
       setPrefix(currentPrefix);
-      unmountSubApp();
+      unmountSubApp(currentPrefix);
       setSubConfig(subAppConfig[currentPrefix]);
     }
-    console.log('location change');
   }, [location]);
 
   useEffect(() => {
-    if (subConfig && Object.keys(subConfig).length > 0) {
-      setMicroApp(loadMicroApp(subConfig));
+    if (subConfig) {
+      console.log('load change app');
+      const currentLoadedMicoApp = loadMicroApp(subConfig);
+      setMicroApp(currentLoadedMicoApp);
     }
   }, [subConfig]);
-
-  useEffect(() => {
-    return () => {
-      console.log('willunmount');
-      microApp && microApp.unmount();
-    };
-  }, []);
 
   return (
     <Layout className='main-layout'>
@@ -70,12 +65,8 @@ function Home() {
           theme='dark'
           mode='inline'
           defaultSelectedKeys={[location.pathname]}
+          selectedKeys={[location.pathname]}
         >
-          {/* <Menu.Item key='/main/userList'>
-            <NavLink to='/main/userList'>
-              main{!collapsed ? '-用户模块' : ''}
-            </NavLink>
-          </Menu.Item> */}
           <Menu.Item key='/app1/marketing'>
             <NavLink to='/app1/marketing'>
               app1{!collapsed ? '-营销模块' : ''}
