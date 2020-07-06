@@ -27,7 +27,7 @@ const subAppConfig: SubAppConfigType = {
   },
   app2: {
     name: 'app2',
-    entry: '/47.98.40.154:8083',
+    entry: '//47.98.40.154:8083',
     container: '#sub-content'
   }
 };
